@@ -1,0 +1,25 @@
+<div class="col-md-12">
+  <div class="card card-container">
+    <img id="profile-img"
+      src="https://cdn3.vectorstock.com/i/1000x1000/30/97/flat-business-man-user-profile-avatar-icon-vector-4333097.jpg"
+      class="profile-img-card" />
+    <form [formGroup]="Loginform" (submit)="login()">
+      <div class="form-group">
+        <label for="UserName">Username</label>
+        <input type="text" value="UserName" formControlName="username">
+        <div *ngIf="Loginform.controls['username'].hasError('required')" style="color:red ;">Username is required </div>
+        
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password">
+        <div *ngIf="Loginform.controls['password'].hasError('required')" style="color:red ;">Password is required</div>
+        <br>
+      </div>
+      <input class="btn btn-primary btn-block"  type="submit" value="Login" [disabled]="Loginform.invalid">&nbsp;
+      <button class="btn btn-success">Register</button>
+
+    </form>
+
+  </div>
+</div>

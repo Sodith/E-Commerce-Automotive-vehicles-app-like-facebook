@@ -1,0 +1,53 @@
+<router-outlet></router-outlet>
+<div class="col-md-12">
+    <div class="card card-container">
+      <img id="profile-img" src="https://icon2.cleanpng.com/20180426/ioq/kisspng-computer-icons-user-profile-avatar-5ae1cad9df1591.9466116915247469699138.jpg" class="profile-img-card" />
+      <form *ngIf="!isSuccessful"[formGroup]="updateform" (ngSubmit)="onSubmit()" >
+        <div class="form-group">
+          <label for="id">id</label>
+          <input type="text" class="form-control" formControlName="id"/>
+         
+        </div>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="title" formControlName="title"  />
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="price" class="form-control" formControlName="price"  />
+            
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" formControlName="description" />
+          
+          </div>
+
+
+          <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" class="form-control" formControlName="category"  />
+
+          </div>
+
+          <div class="form-group">
+            <label for="image">ImageUrl</label>
+            <input type="text" class="form-control"formControlName="image" />
+            
+          </div>
+       
+        <div class="form-group">
+          <button class="btn btn-primary btn-block">Add Products</button>
+        </div>
+        <div class="alert alert-success" *ngIf="isSuccessful">
+          Your registration is successful!
+        </div>
+        <!-- <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+          Signup failed!<br />{{ errorMessage }}
+        </div> -->
+      </form>
+  
+     
+    </div>
+  </div>

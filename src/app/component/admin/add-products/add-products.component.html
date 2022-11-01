@@ -1,0 +1,87 @@
+<router-outlet></router-outlet>
+<div class="col-md-12">
+    <div class="card card-container">
+      <img id="profile-img" src="https://icon2.cleanpng.com/20180426/ioq/kisspng-computer-icons-user-profile-avatar-5ae1cad9df1591.9466116915247469699138.jpg" class="profile-img-card" />
+      <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        <div class="form-group">
+          <label for="id">id</label>
+          <input type="text" class="form-control" name="id" [(ngModel)]="form.id" required minlength="1"
+            maxlength="20" #id="ngModel" [ngClass]="{ 'is-invalid': f.submitted && id.errors }" />
+          <div class="invalid-feedback" *ngIf="id.errors && f.submitted">
+            <div *ngIf="id.errors['required']"> <div *ngIf="id.errors['minlength']">
+                Id must be at least 1 characters
+              </div> is required</div>
+           
+            <div *ngIf="id.errors['maxlength']">
+              Username must be at most 20 characters
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="title" class="form-control" name="title" [(ngModel)]="form.title" required title #title="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && title.errors }" />
+          <div class="invalid-feedback" *ngIf="title.errors && f.submitted">
+            <div *ngIf="title.errors['required']">title is required</div>
+            <div *ngIf="title.errors['title']">
+                Title must be a valid email address
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="price" class="form-control" name="price" [(ngModel)]="form.price" required price #price="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && price.errors }" />
+            <div class="invalid-feedback" *ngIf="price.errors && f.submitted">
+              <div *ngIf="price.errors['required']">price is required</div>
+              <div *ngIf="price.errors['price']">
+                price must be a valid 
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" name="description" [(ngModel)]="form.description" required description #description="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && description.errors }" />
+            <div class="invalid-feedback" *ngIf="description.errors && f.submitted">
+              <div *ngIf="description.errors['required']">Description is required</div>
+
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" class="form-control" name="category" [(ngModel)]="form.category" required category #category="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && category.errors }" />
+            <div class="invalid-feedback" *ngIf="category.errors && f.submitted">
+              <div *ngIf="category.errors['required']">Category is required</div>
+
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="image">ImageUrl</label>
+            <input type="text" class="form-control" name="image" [(ngModel)]="form.image" required image #image="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && category.errors }" />
+            <div class="invalid-feedback" *ngIf="category.errors && f.submitted">
+              <!-- <div *ngIf="image.errors['required']">ImageUrl is required</div> -->
+
+            </div>
+          </div>
+       
+        <div class="form-group">
+          <button class="btn btn-primary btn-block">Add Products</button>
+        </div>
+        <div class="alert alert-success" *ngIf="isSuccessful">
+          Your registration is successful!
+        </div>
+        <!-- <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+          Signup failed!<br />{{ errorMessage }}
+        </div> -->
+      </form>
+  
+     
+    </div>
+  </div>
